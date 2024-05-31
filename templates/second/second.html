@@ -1,0 +1,13 @@
+{% extends "first/index.html"%} {% load static %} {% block body %}
+<h1 class="text-5xl font-bold bg-red-500 text-center">Info List</h1>
+<div>
+  <ul
+    class="flex flex-col justify-center items-center mt-10 bg-green-300 w-full"
+  >
+    {% for i in info %}
+    <li>{{ i }}</li>
+    {% endfor %}
+  </ul>
+  <img src="{% static 'images/download (1).png' %}" alt="" />
+</div>
+{% endblock %}

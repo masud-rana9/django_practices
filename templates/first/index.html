@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Django practice</title>
+  </head>
+
+  <body>
+    <nav>
+      <div class="container mx-auto">
+        <ul
+          class="flex flex-1 justify-between items-center bg-red-900 text-white px-10 py-5 capitalize"
+        >
+          <li class="bg-black p-2 text-2xl rounded-md">
+            <a href="{% url 'first' %}">fistpage</a>
+          </li>
+          <li class="bg-black p-2 text-2xl rounded-md">
+            <a href="{% url 'second' %}">secondpage</a>
+          </li>
+          <li class="bg-black p-2 text-2xl rounded-md">
+            <a href="{% url 'third' %}">thirdpage</a>
+          </li>
+          <li class="bg-black p-2 text-2xl rounded-md">
+            <a href="{% url 'fourth' %}">fourthpage</a>
+          </li>
+          <li class="bg-black p-2 text-2xl rounded-md">
+            <a href="{% url 'form' %}">form</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <table border="1">
+      <tr>
+        <th>user name</th>
+        <th>Amount</th>
+        <th>payment date</th>
+        <th>payments method</th>
+        <th>status</th>
+      </tr>
+      <tr>
+        {% for item in payment %}
+        <td>{{item.user}}</td>
+        <td>{{item.amount}}</td>
+        <td>{{item.payment_date}}</td>
+        <td>{{item.payment_method}}</td>
+        <td>{{item.status}}</td>
+        {% endfor %}
+      </tr>
+    </table>
+
+    {% block body%} {% endblock %}
+  </body>
+</html>
